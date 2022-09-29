@@ -1,6 +1,8 @@
-import { Dispatch } from "@blockfold/dispatch";
+import { DispatchAgent } from "@blockfold/dispatch";
 
-Dispatch.onEvent("tally", (proj, agent, event, state): Promise<any> => {
+let agent = new DispatchAgent();
+
+agent.onEvent("tally", (proj, agent, event, state): Promise<any> => {
 	// Initialize our state (if its not ready)
 	if (!state.tally) {
 		state.tally = 0;
@@ -15,7 +17,7 @@ Dispatch.onEvent("tally", (proj, agent, event, state): Promise<any> => {
 	return Promise.resolve(state);
 });
 
-Dispatch.onCron("tally", "* * * * *", (proj, agent, event, state): Promise<any> => {
+agent.onCron("tally", "* * * * *", (proj, agent, event, state): Promise<any> => {
 	// Initialize our state (if its not ready)
 	if (!state.tally) {
 		state.tally = 0;
@@ -26,3 +28,5 @@ Dispatch.onCron("tally", "* * * * *", (proj, agent, event, state): Promise<any> 
 
 	return Promise.resolve(state);
 });
+
+export default agent;
