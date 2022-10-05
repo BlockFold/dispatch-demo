@@ -1,32 +1,32 @@
-import { DispatchAgent } from "@blockfold/dispatch";
+import { Bot } from "@blockfold/dispatch";
 
-let agent = new DispatchAgent();
+let bot = new Bot("tally");
 
-agent.onEvent("tally", (context, event, state): Promise<any> => {
+bot.onEvent((event, state): Promise<any> => {
 	// Initialize our state (if its not ready)
 	if (!state.tally) {
 		state.tally = 0;
 	}
 
 	if (event.eventName == "Transfer") {
-		var value = agent.fromERC20BigNum(event.data["value"]);
+		var value = bot.fromBigNum(event.data["value"], 6);
 		state.tally += value;
-		context.agent.logMessage("INFO", `tally.onEvent.Transfer: ${value}, ${state.tally}`);
+		bot.logMessage("INFO", `tally.onEvent.Transfer: ${value}, ${state.tally}`);
 	}
 
 	return Promise.resolve(state);
 });
 
-agent.onCron("tally", "* * * * *", (context, event, state): Promise<any> => {
+bot.onCron("* * * * *", (event, state): Promise<any> => {
 	// Initialize our state (if its not ready)
 	if (!state.tally) {
 		state.tally = 0;
 	}
 	// Reset the state:
-	context.agent.logMessage("INFO", `tally.onCron: ${state.tally}`);
+	bot.logMessage("INFO", `tally.onCron: ${state.tally}`);
 	state.tally = 0;
 
 	return Promise.resolve(state);
 });
 
-export default agent;
+export default bot;
