@@ -1,4 +1,5 @@
 import { Bot } from "@blockfold/dispatch";
+import fetch from "node-fetch";
 
 let bot = new Bot();
 
@@ -17,7 +18,7 @@ bot.onEvent((event, state): Promise<any> => {
   return Promise.resolve(state);
 });
 
-bot.onCron("* * * * *", (event, state): Promise<any> => {
+bot.onCron("* * * * *", async (event, state): Promise<any> => {
   // Initialize our state (if its not ready)
   if (!state.tally) {
     state.tally = 0;
