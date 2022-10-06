@@ -22,6 +22,24 @@ bot.onCron("* * * * *", (event, state): Promise<any> => {
   if (!state.tally) {
     state.tally = 0;
   }
+
+  var slackHook = bot.getSecret("SLACK_NOTIFY_HOOK");
+  if (!slackHook) {
+    bot.logMessage("ERROR", "No SLACK_NOTIFY_HOOK secret was found");
+  } else {
+    var payload = {
+      text: `USDT Transfers totalled ${state.tally} in the last minute`,
+    };
+    var deploymentResponse: any = await fetch(slackHook!, {
+      method: "POST", // or 'PUT'
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+  }
+
   // Reset the state:
   bot.logMessage("INFO", `tally.onCron: ${state.tally}`);
   state.tally = 0;
