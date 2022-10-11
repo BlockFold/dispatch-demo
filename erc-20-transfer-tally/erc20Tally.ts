@@ -3,7 +3,10 @@ import fetch from "node-fetch";
 
 let bot = new Bot();
 
-bot.onEvent((event, state): Promise<any> => {
+let contractAddress = bot.getSecret("CONTRACT_ADDRESS");
+let cron = bot.getSecret("CRON");
+
+bot.onEvent(contractAddress, (event, state): Promise<any> => {
   // Initialize our state (if its not ready)
   if (!state.tally) {
     state.tally = 0;

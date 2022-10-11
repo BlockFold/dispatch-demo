@@ -1,0 +1,27 @@
+dispatchVersion: v1.0.0
+name: USDT / USDT Flippening
+description: | 
+  Tally's the total value transfered to USDT and USDC each minute
+  and emits a message to a Slack WebHook when the USDC transfer value is 
+  greater than USDT. 
+bots:
+  usdcTally:
+    name: Minute by minute tally of USDC (USD Coin)
+    entrypoint: "./usdcTally.ts"
+  usdtTally:
+    name: Minute by minute tally of USDT (Tether) 
+    entrypoint: "./usdtTally.ts"
+  tallyCompare:
+    name: The reset & comparison bot 
+    entrypoint: "./tallyCompare.ts"
+secrets:
+  SLACK_NOTIFY_HOOK: 
+    dataType: string
+    type: url
+    uiType: Slack Webhook Url
+    default: 
+  CRON: 
+    dataType: string
+    type: cron
+    uiType: Cron
+    default: "* * * * *"

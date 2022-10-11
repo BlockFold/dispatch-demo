@@ -1,0 +1,19 @@
+dispatchVersion: v1.0.0
+name: Slack ERC Transfer Tally
+description: |
+  Tally's the total value transfered in an ERC 20 each X period
+  and sends the result to a Slack webhook
+bots:
+  megaTally:
+    entrypoint: "./erc20Tally"
+secrets:
+  SLACK_NOTIFY_HOOK:
+    type: url
+    dataType: string
+    svelteType: SlackWebhookUrl
+    default:
+  CONTRACT_ADDRESS:
+    type: contractAddress
+    dataType: string
+    svelteType: ERC20ContractAddress
+    default: "0xdAC17F958D2ee523a2206206994597C13D831ec7"
