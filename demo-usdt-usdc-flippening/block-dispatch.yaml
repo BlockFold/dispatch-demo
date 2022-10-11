@@ -1,5 +1,6 @@
 dispatchVersion: v1.0.0
-name: USDT / USDT Flippening
+name: Tether USDC Flipping
+code: tether-usdc-flippening
 description: | 
   Tally's the total value transfered to USDT and USDC each minute
   and emits a message to a Slack WebHook when the USDC transfer value is 
@@ -18,7 +19,7 @@ secrets:
   SLACK_NOTIFY_HOOK: 
     dataType: string
     type: url
-    uiType: Slack Webhook Url
+    uiType: SlackWebhookUrl
     default: 
   CRON: 
     dataType: string

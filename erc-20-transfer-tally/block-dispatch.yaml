@@ -1,5 +1,6 @@
 dispatchVersion: v1.0.0
-name: Slack ERC Transfer Tally
+name: Slack ERC20 Transfer Tally
+code: slack-erc20-transfer-tally
 description: |
   Tally's the total value transfered in an ERC 20 each X period
   and sends the result to a Slack webhook
