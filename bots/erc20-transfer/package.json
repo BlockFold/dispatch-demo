@@ -1,0 +1,23 @@
+{
+	"name": "@blockfold/on-erc20-transfer",
+	"version": "1.4.11",
+	"description": "Emits a message each time an ERC 20 event is captured",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"prepublish": "tsc"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/node-fetch": "^2.6.2",
+		"prettier": "^2.7.1",
+		"ts-node": "^10.8.1",
+		"typescript": "^4.7.4"
+	},
+	"dependencies": {
+		"@blockfold/dispatch": "^1.4.17",
+		"node-fetch": "^2.6.2"
+	}
+}

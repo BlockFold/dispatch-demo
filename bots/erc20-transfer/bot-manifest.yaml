@@ -1,0 +1,28 @@
+dispatchVersion: 1.0.0
+botVersion: 1.0.0
+type: blockfold/bot
+name: ERC20 Transfer
+code: blockfold/erc20/on-transfer
+description: |
+  Emits an event each time a Transfer event on the contract specified by 
+  CONTRACT_ADDRESS ocurrs
+
+icon: fa-duotone fa-user-robot
+entrypoint: "erc20TransferBot"
+secrets:
+  CONTRACT_ADDRESS:
+    type: contractAddress
+    default: "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+
+emits:
+  blockfold/erc20/erc20Transfer:
+    fields:
+      - rawValue
+      - parsedValue
+      - contract
+      - from
+      - to
+      - transactionHash
+      - blockHash
+
+handles:
