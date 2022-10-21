@@ -1,0 +1,23 @@
+dispatchVersion: 1.0.0
+botVersion: 1.0.0
+type: blockfold/bot
+name: Slack Webhook
+code: blockfold/slack-webhook
+description: |
+  Sends a message to a Slack WebHook.  You can include data
+  from the message by using "Hello {name}", where there is 
+  a property called 'name' in the event received.
+
+icon: fa-brands fa-slack
+entrypoint: "slackWebhookBot"
+secrets:
+  SLACK_WEBHOOK:
+    type: string/url
+    default: ""
+  TEMPLATE:
+    type: string/template
+    default: ""
+
+emits:
+handles:
+  - "*"

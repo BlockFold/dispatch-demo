@@ -1,0 +1,31 @@
+dispatchVersion: 1.0.0
+botVersion: 1.0.0
+type: blockfold/bot
+name: Filter Condition
+code: blockfold/filter-threshold
+description: |
+  Calculates a running total for a given value that resets
+  according to a CRON expresstion.
+
+icon: fa-duotone fa-filters
+entrypoint: "filterNumberBot"
+secrets:
+  VALUE_KEY:
+    type: string/object-selector
+    default: "* * * * *"
+  COMPARISON:
+    type: option
+    default: "* * * * *"
+    options:
+      - ">"
+      - ">="
+      - "="
+      - "<"
+      - "<="
+      - "!="
+
+emits:
+  "*"
+
+handles:
+  - "*"

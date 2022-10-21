@@ -1,7 +1,7 @@
 {
-	"name": "@blockfold/agent-demo-tally",
+	"name": "@blockfold/dispatch-cron-tally",
 	"version": "1.0.0",
-	"description": "An example Agent with a running tally",
+	"description": "Tallys and resets a value",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"scripts": {
@@ -11,13 +11,13 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"@types/node-fetch": "^2.6.2",
 		"prettier": "^2.7.1",
 		"ts-node": "^10.8.1",
-		"typescript": "^4.7.4",
-		"@types/node-fetch": "^2.6.2"
+		"typescript": "^4.7.4"
 	},
 	"dependencies": {
-		"@blockfold/dispatch": "^1.2.18",
+		"@blockfold/dispatch": "^1.5.6",
 		"node-fetch": "^2.6.2"
 	}
 }

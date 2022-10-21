@@ -1,0 +1,26 @@
+dispatchVersion: 1.0.0
+botVersion: 1.0.0
+type: blockfold/bot
+name: ERC20 Transfer
+code: blockfold/cron-tally
+description: |
+  Calculates a running total for a given value that resets
+  according to a CRON expresstion.
+
+icon: fa-duotone fa-sigma
+entrypoint: "cronTallyBot"
+secrets:
+  RESET_CRON:
+    type: cron
+    default: "* * * * *"
+  VALUE_KEY:
+    type: string/object-selector
+    default: ""
+
+emits:
+  "blockfold/cron-tally":
+    fields:
+      - value
+
+handles:
+  - "*"

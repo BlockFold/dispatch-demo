@@ -1,7 +1,7 @@
 {
-	"name": "@blockfold/on-erc20-transfer",
-	"version": "1.4.11",
-	"description": "Emits a message each time an ERC 20 event is captured",
+	"name": "@blockfold/dispatch-slack-webhook",
+	"version": "1.0.0",
+	"description": "Sends a message to slack vi a webhook",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"scripts": {
@@ -17,7 +17,7 @@
 		"typescript": "^4.7.4"
 	},
 	"dependencies": {
-		"@blockfold/dispatch": "^1.4.11",
+		"@blockfold/dispatch": "^1.5.6",
 		"node-fetch": "^2.6.2"
 	}
 }

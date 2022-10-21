@@ -1,7 +1,7 @@
 {
-	"name": "@blockfold/dispatch-erc20-transfer",
+	"name": "@blockfold/dispatch-filter-number",
 	"version": "1.0.0",
-	"description": "Emits a message each time an ERC 20 event is captured",
+	"description": "Filters events by a numeric comparison",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"scripts": {
